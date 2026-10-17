@@ -28,7 +28,7 @@ AppPublisher=simozzer
 AppPublisherURL=https://github.com/simozzer/MzPCG
 AppSupportURL=https://github.com/simozzer/MzPCG/issues
 AppUpdatesURL=https://github.com/simozzer/MzPCG/releases
-AppCopyright=Copyright (C) 2026 Simon Moscrop
+AppCopyright=Created by Simon Moscrop
 VersionInfoVersion={#AppVersion}
 
 ; Nothing goes here but the licence and the uninstaller - the plugin goes in the VST3 folder.
