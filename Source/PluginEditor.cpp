@@ -276,6 +276,20 @@ MzPcgEditor::MzPcgEditor(MzPcgProcessor& p)
     rate.setTooltip(juce::String("RATE\n") + params::spec("rate").hint);
     addAndMakeVisible(pattern);
     addAndMakeVisible(display);
+
+    //
+    // Where to come back to: the version this is, and the page the next one will be on.
+    // Nothing here checks for updates by itself - the plugin never goes online unasked.
+    // It takes no keyboard focus, or a host's space bar could open it rather than play.
+    //
+    projectLink.setButtonText("MzPCG " JucePlugin_VersionString "  -  github.com/simozzer/MzPCG");
+    projectLink.setURL(juce::URL("https://github.com/simozzer/MzPCG"));
+    projectLink.setFont(fonts::bold(10.5f), false, juce::Justification::centredRight);
+    projectLink.setColour(juce::HyperlinkButton::textColourId, colours::light.withAlpha(0.6f));
+    projectLink.setTooltip("The project's page: the latest version and what's new in it, the source, "
+                           "and where to report a problem. Opens in your browser.");
+    projectLink.setWantsKeyboardFocus(false);
+    addAndMakeVisible(projectLink);
     addAndMakeVisible(mode);
     addAndMakeVisible(rate);
 
@@ -307,6 +321,7 @@ void MzPcgEditor::timerCallback()
 void MzPcgEditor::resized()
 {
     face = getLocalBounds().reduced(10);
+    projectLink.setBounds(face.reduced(14, 8).removeFromTop(28).removeFromRight(300));   // the title's row
 
     auto r = face.reduced(10, 8);
     r.removeFromTop(30);   // the title

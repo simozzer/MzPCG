@@ -113,6 +113,9 @@ private:
     Switch mode, rate;
     std::vector<std::unique_ptr<Knob>> gainKnobs, outputKnobs;
 
+    // This version, and where to find the next: the project's page, along the title.
+    juce::HyperlinkButton projectLink;
+
     juce::Rectangle<int> face, pcgArea, outArea;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MzPcgEditor)
